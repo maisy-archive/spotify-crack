@@ -5,7 +5,7 @@ Allows you to listen along with discord users without premium.
 - Powercord
 
 # Installation
-- `git clone https://github.com/slow/spotify-crack`
+- `git clone https://github.com/HypeSquad-inc/spotify-crack`
 
 # "It isn't working"
 - Make sure you only have one spotify account connected to your discord
@@ -13,4 +13,4 @@ Allows you to listen along with discord users without premium.
 - If you haven't already, fully restart discord
 
 # Support
-- eternal#0404
+- ~~eternal#0404~~
