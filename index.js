@@ -1,24 +1,24 @@
-const { Plugin } = require('powercord/entities');
-const { inject, uninject } = require('powercord/injector');
-const { getModule } = require('powercord/webpack');
+const { Plugin } = require('@vizality/entities');
+const { patch, unpatch } = require('@vizality/patcher');
+const { getModule } = require('@vizality/webpack');
 const isPremium = getModule(['isSpotifyPremium'], false);
 const Profile = getModule(['getProfile'], false);
 const Dispatcher = getModule(['dispatch'], false);
 
 module.exports = class extends Plugin {
-   startPlugin() {
-      inject('spotify-crack', Profile, 'getProfile', async function (args) {
-         inject('spotify-crack1', isPremium, 'isSpotifyPremium', async function (_) {
+   start() {
+      patch('sc-getProfile', Profile, 'getProfile', async function (args) {
+         patch('sc-isPremium', isPremium, 'isSpotifyPremium', async function (_) {
             return true;
          });
          Dispatcher.dispatch({ type: 'SPOTIFY_PROFILE_UPDATE', accountId: args[0], isPremium: true });
-         uninject('spotify-crack1');
+         unpatch('sc-isPremium');
          return;
       });
    }
 
-   pluginWillUnload() {
-      uninject('spotify-crack');
-      uninject('spotify-crack1');
+   stop() {
+      unpatch('sc-getProfile');
+      unpatch('sc-isPremium');
    }
 };
