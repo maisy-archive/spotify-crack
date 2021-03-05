@@ -2,6 +2,9 @@
    "name": "SpotifyCrack",
    "version": "1.0.0",
    "description": "Allows you to listen along with Discord users without the need for Spotify Premium.",
-   "author": "rem#3980 | Original author eternal/slow",
+   "author": {
+      "name": "rem#3980 | Original author: eternal/slow",
+      "id": "257109471589957632"
+    },
    "license": "Unlicensed"
 }
